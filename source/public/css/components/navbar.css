@@ -1,0 +1,23 @@
+.navbar {
+	background-color: var(--primary-color);
+	color: white;
+	display: flex;
+	min-height: 5rem;
+	padding: 1rem 0rem;
+}
+.brand {
+	width: 10rem;
+	font-size: 2rem;
+	margin: 0rem 5rem;
+}
+.links {
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
+	font-size: 1rem;
+	width: 4rem;
+}
+
+.links + li:hover {
+	cursor: pointer;
+}
