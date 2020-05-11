@@ -1,24 +1,37 @@
 //Import Express
-const express = require("express");
+const express = require('express');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
+dotenv.config();
 //Initializing Server and Port
 const server = express();
-const PORT = 8080;
+const PORT = 7000;
+
+//Connect to DataBase
+mongoose.connect(
+    process.env.DB_CONNECT,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log('Connected with DataBase!!!')
+);
 
 //Server Setup
-server.set("views", "./source/views");
-server.set("view engine", "ejs");
+server.set('views', './source/views');
+server.set('view engine', 'ejs');
 
-server.use(express.static("./source/public"));
+server.use(express.json());
+server.use(express.static('./source/public'));
 server.use(express.urlencoded({ extended: true }));
 
 //Route Imports
-let homepage = require("./source/routes/index.js");
+let homeRoute = require('./source/routes/index.js');
+let authRoute = require('./source/routes/api/auth.js');
 
 //Using Route Imports
-server.use("/", homepage);
+server.use('/', homeRoute);
+server.use('/api/user', authRoute);
 
 //Server Listening to Requests!!!
 server.listen(PORT, () => {
-  console.log(`*** Server is running on: localhost:${PORT} ***`);
+    console.log(`*** Server is running on: localhost:${PORT} ***`);
 });
