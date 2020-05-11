@@ -6,13 +6,13 @@ const mongoose = require('mongoose');
 dotenv.config();
 //Initializing Server and Port
 const server = express();
-const PORT = 7000;
+const PORT = 8080;
 
 //Connect to DataBase
 mongoose.connect(
-    process.env.DB_CONNECT,
+    process.env.YOUR_DB_KEY,
     { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log('Connected with DataBase!!!')
+    () => console.log('*** Connected with DataBase!!! ***')
 );
 
 //Server Setup
