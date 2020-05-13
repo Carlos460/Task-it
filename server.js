@@ -26,9 +26,11 @@ server.use(express.urlencoded({ extended: true }));
 //Route Imports
 let homeRoute = require('./source/routes/index.js');
 let authRoute = require('./source/routes/api/user.js');
+let profileRoute = require('./source/routes/profile');
 
 //Using Route Imports
 server.use('/', homeRoute);
+server.use('/profile', profileRoute);
 server.use('/api/user', authRoute);
 
 //Server Listening to Requests!!!

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('components/head')%>
+
+<body>
+    <form action="/api/user/login" method="POST">
+        <label for="username">username</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password">
+        <input type="submit" value="login">
+    </form>
+</body>
+
+</html>
