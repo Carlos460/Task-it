@@ -1,8 +1,11 @@
 <nav class="navbar">
-	<h1 class="brand">Spring</h1>
+	<h1 class="brand"><a href="/">Task-it</a></h1>
 	<ul class="links">
-		<li>Project</li>
-		<li>Contact</li>
-		<li>About</li>
+		<% if (typeof username === "undefined") { %>
+		<li><a href="/profile/login">Log-in</a></li>
+		<% } else{%>
+		<li>Profile</li>
+		<li><a href="/api/user/logout">Log-out</a></li>
+		<%} %>
 	</ul>
 </nav>

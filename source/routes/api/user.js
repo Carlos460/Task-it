@@ -52,10 +52,14 @@ router.post('/login', async (req, res) => {
     if (!validPass) return res.status(400).send('Invalid password');
 
     //Making login-token
-    const token = jwt.sign({ _id: user.id }, process.env.TOKEN);
+    const token = jwt.sign({ _id: user.id }, process.env.TOKEN, { expiresIn: '1h' });
 
     //Send token to client
-    res.header('auth-token', token).status(302).redirect('/profile');
+    res.cookie('TastyCookie', token, { maxAge: 3600000 }).status(302).redirect('/profile');
+});
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('TastyCookie').status(302).redirect('/');
 });
 
 module.exports = router;

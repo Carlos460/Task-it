@@ -2,11 +2,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 //Initializing Server and Port
 const server = express();
-const PORT = 8080;
+const PORT = 8082;
 
 //Connect to DataBase
 mongoose.connect(
@@ -19,6 +20,7 @@ mongoose.connect(
 server.set('views', './source/views');
 server.set('view engine', 'ejs');
 
+server.use(cookieParser());
 server.use(express.json());
 server.use(express.static('./source/public'));
 server.use(express.urlencoded({ extended: true }));
