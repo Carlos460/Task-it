@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 dotenv.config();
 //Initializing Server and Port
 const server = express();
-const PORT = 8082;
+const PORT = 8080;
 
 //Connect to DataBase
 mongoose.connect(

@@ -54,11 +54,13 @@ router.post('/login', async (req, res) => {
     //Making login-token
     const token = jwt.sign({ _id: user.id }, process.env.TOKEN, { expiresIn: '1h' });
 
-    //Send token to client
+    //Send cookie token to client
     res.cookie('TastyCookie', token, { maxAge: 3600000 }).status(302).redirect('/profile');
 });
 
+//logout
 router.get('/logout', (req, res) => {
+    //delete that TastyCookie :(
     res.clearCookie('TastyCookie').status(302).redirect('/');
 });
 
