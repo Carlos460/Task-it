@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const verifyToken = require('../tools/validtoken');
 
 router.get('/', (req, res) => {
     const token = req.cookies;

@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { getUserData } = require('../tools/profileData');
 
-router.get('/', (req, res) => {
-    res.render('profile', { username: 'username passed with ejs' });
+router.get('/', getUserData, (req, res) => {
+    res.render('profile', { username: req.userData.username });
 });
 
 router.get('/login', (req, res) => {
