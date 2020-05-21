@@ -8,7 +8,6 @@ async function getUserData(req, res, next) {
 
     //Getting cookie data
     const userCookie = jwt.decode(cookie, process.env.TOKEN);
-    console.log(userCookie._id);
     //getting data 
     const user = await User.findOne({ _id: userCookie._id });
     req.userData = user;

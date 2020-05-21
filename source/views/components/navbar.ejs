@@ -1,25 +1,12 @@
-<div class="">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="/">
-			<h1 class="ml-5">Task-it</h1>
+<div class="navbar">
+	<div class="brand">
+		<a href="/">
+			<h1>Task-It</h1>
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<% if (typeof username === "undefined") { %>
-				<li class="nav-item ml-5 ">
-					<a class="nav-link text-center" href="/profile/login">Log-in</a>
-				</li>
-				<% } else{%>
-				<li class="nav-item ml-5">
-					<a class="nav-link text-center" href="/api/user/logout">Log-out</a>
-				</li>
-				<%} %>
-			</ul>
-
-		</div>
-	</nav>
+	</div>
+	<% if (typeof username === "undefined") { %>
+	<a class="links" href="/profile/login">Login</a>
+	<% } else {%>
+	<a class="links" href="/api/user/logout">Logout</a>
+	<% } %>
 </div>

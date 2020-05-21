@@ -1,65 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('components/head')%>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components/navbar.css">
+    <link rel="stylesheet" href="/css/landingpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
 
 <body>
     <%- include('components/navbar')%>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="container mt-5">
-                    <img class="d-inline-block w-100" style="transform: scaleX(-1);" src="img/task-board.svg"
-                        alt="image">
-                </div>
-            </div>
-            <!-- Register-->
-            <div class="col-lg-5 pt-5">
-                <div class="container h-100 py-5">
-                    <!-- Heading for Form-->
-                    <form autocomplete="off" action="/api/user/register" method="POST">
-                        <div class="container-fluid">
-                            <div class="row justify-content-center">
-                                <h1>Sign Up Today!</h1>
-                            </div>
-
-                            <div class="row justify-content-center">
-                                <!-- Username -->
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label for="username">User Name</label>
-                                        <input type="text" class="form-control" id="username"
-                                            placeholder="Your Username">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <!-- Email-->
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email Address</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                            placeholder="Your Email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <!-- Password -->
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password"
-                                            placeholder="Password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="header">
+        <div class="image-container">
         </div>
+        <div class="form-container">
+            <form autocomplete="off" action="/api/user/register" method="POST">
+                <h1>Sign Up Today!</h1>
+                <!-- UserName -->
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" class="form-control" id="username" placeholder="Your Username">
+
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email Address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Your Email">
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="button-container">
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register-->
+    <!-- Heading for Form-->
+
 
 
     </div>

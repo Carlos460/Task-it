@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    height: 5rem;
+    width: 100%;
+}
+.brand {
+
+    width: 20rem;
+    padding: 1.4rem 3rem;
+}
+.brand > a {
+    text-decoration: none;
+    color: white;
+}
+.links {
+    padding: 2rem;
+    text-decoration: none;
+    color: white;
+}
