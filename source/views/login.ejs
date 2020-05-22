@@ -8,18 +8,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/components/navbar.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/form.css">
 </head>
 
 <body>
     <%- include('components/navbar')%>
     <!-- Login Form -->
-    <form action="/api/user/login" method="POST">
-        <label for="username">UserName</label>
-        <input type="text" class="form-control" id="username" name="username">
-        <label for="password">Password</label>
-        <input type="text" class="form-control" name="password" id="password">
-        <button type="submit" value="login" class="btn btn-primary justify-content-center">Log-In</button>
-    </form>
+    <div class="header">
+        <div class="form-container">
+            <form autocomplete="off" action="/api/user/login" method="POST">
+                <h1>Log-In</h1>
+                <!-- UserName-->
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="button-container">
+                    <button type="submit" value="login" class="btn btn-primary justify-content-center">Log-In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

@@ -8,38 +8,37 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/components/navbar.css">
+    <link rel="stylesheet" href="/css/components/form.css">
     <link rel="stylesheet" href="/css/landingpage.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/components/header.css">
 
 </head>
 
 <body>
     <%- include('components/navbar')%>
     <div class="header">
-        <div class="image-container">
-        </div>
+        <div class="image-container"></div>
         <div class="form-container">
             <form autocomplete="off" action="/api/user/register" method="POST">
                 <h1>Sign Up Today!</h1>
                 <!-- UserName -->
                 <div class="form-group">
                     <label for="username">User Name</label>
-                    <input type="text" class="form-control" id="username" placeholder="Your Username">
-
+                    <input type="text" id="username" placeholder="Your Username" name="username" required>
                 </div>
                 <!-- Email -->
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email Address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                        placeholder="Your Email">
+                    <input type="email" id="email" placeholder="Your Email" name="email" required>
                 </div>
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" id="password" placeholder="Password" name="password" required>
                 </div>
                 <div class="button-container">
-                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" value="Submit">Submit</button>
                 </div>
             </form>
         </div>

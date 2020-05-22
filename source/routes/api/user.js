@@ -8,15 +8,12 @@ const {
 } = require('../../tools/validinput');
 
 router.post('/register', async (req, res) => {
-
     //validating data from request
     const { error } = registerValidation(req.body);
     if (error) return res.status(400).redirect('/');
-
     //Checking if Email is used
     const emailExist = await User.findOne({ email: req.body.email });
     if (emailExist) return res.status(400).send('Email already exist');
-    console.log('emailchecked');
     //secret password
     const salt = await bycrypt.genSalt(10);
     const hashedPassword = await bycrypt.hash(req.body.password, salt);
@@ -31,7 +28,7 @@ router.post('/register', async (req, res) => {
     try {
         //saving User
         const savedUser = await user.save();
-        res.status(302).redirect('/');
+        res.status(302).redirect('/profile');
     } catch (err) {
         res.status(400).send(err);
     }

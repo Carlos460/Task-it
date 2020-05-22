@@ -1,36 +1,7 @@
-.header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.header > * { 
-    text-align: center;
-}
-.form-container {
-    margin:5rem 2rem
-}
 .image-container {
     margin:6rem;
     height: 15rem;
     width: 20rem;
     background-image: url(/img/task-board.svg);
     background-size: cover;
-}
-.form-group {
-    display: block;
-    margin: 1rem 1rem;
-    text-align: center;
-}
-
-.form-group > * {
-    display: block;
-    margin: 0.5rem;
-}
-.form-group > input {
-    padding: 0.4rem;
-    border-radius: 4px;
-}
-.button-container {
-    display: flex;
-    justify-content: center;
 }
