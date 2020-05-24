@@ -1,5 +1,8 @@
 :root {
 	--primary-color: rgb(235, 83, 83);
+	--primary-light: #F5918C;
+	--secondary-color: #CC3B3B;
+	--secondary-ligth: #FAC2B5;
 }
 * {
 	margin: 0;

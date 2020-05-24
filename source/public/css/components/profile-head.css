@@ -1,0 +1,13 @@
+.profile-head {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    margin: 2rem auto;
+    width: 80%;
+    height: 5rem;
+    border-radius: 0.5rem;
+}
+.profile-head > h1 {
+    text-align: center;
+    color: white;
+}

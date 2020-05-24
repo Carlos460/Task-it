@@ -5,6 +5,6 @@ router.get('/', (req, res) => {
     const token = req.cookies;
     if (token.TastyCookie) return res.status(302).redirect('/profile')
     res.render('index');
-});
 
-module.exports = router;
+});
+module.exports = router; 

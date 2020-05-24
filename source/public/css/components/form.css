@@ -26,26 +26,3 @@
     border-radius: 4px;
     width: 90%;
 }
-.button-container {
-    margin: 1rem 0rem;
-    display: flex;
-    justify-content: center;
-}
-
-.button-container > button {
-    padding:0.35em 1.2em;
-    background-color: #EB5353;
-    border:0.1em solid #FFFFFF;
-    margin:1rem 0.3em;
-    border-radius:0.12em;
-    text-decoration:none;
-    font-weight:300;
-    color:#FFFFFF;
-    text-align:center;
-    transition: all 0.8s;
-}
-.button-container > button:hover {
-    cursor: pointer;
-    color:#000000;
-    background-color:#FFFFFF;
-}

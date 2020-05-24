@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="css/profilepage.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/components/button.css">
+    <link rel="stylesheet" href="/css/components/profile-head.css">
 </head>
 
 <body>
     <%- include('components/navbar') %>
     <h1>Welcome @<%= username%>!</h1>
+    <div class="profile-head">
+        <div class="button-container">
+            <button class="button-primary">New Clipboard</button>
+            <button class="button-primary">Remove Clipboard</button>
+            <button class="button-primary">History</button>
+        </div>
+
+    </div>
 
 </html>
 </body>
