@@ -3,11 +3,11 @@ const { getUserData } = require('../../tools/profileData.js')
 
 router.post('/add', (req, res) => {
     // get user data
-    res.send({ some: "json" });
+    res.json({ some: "json" });
     // Make new clipboard
 })
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     res.json({ message: 'You got the message from the clipoard' });
 });
 

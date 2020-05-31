@@ -7,17 +7,17 @@ const workspace = document.querySelector('.workspace');
 function clipboardElement(data) {
     const clipboardHTML = `
     <div>
-    <h1>Hello ${data}</h1>
+    <h1> Clipboard Created:${data}</h1>
     </div>
     `;
     return clipboardHTML;
 };
 
 // Loadclipboard function
-function loadClipboard() {
+function loadClipboard(data) {
     const clipboardFrag = document
         .createRange()
-        .createContextualFragment(clipboardElement("hellow world"));
+        .createContextualFragment(clipboardElement(data));
     // Apend clipboard to workspace in the DOM
     workspace.appendChild(clipboardFrag);
 }
@@ -25,11 +25,10 @@ function loadClipboard() {
 
 // requests to create a clipboard
 async function createClipboard() {
-    const response = await fetch('http://localhost:8080/api/clipboard/add');
+    const response = await fetch('http://localhost:8080/api/clipboard/add', { method: 'POST' });
     const data = await response.json();
-    console.log(data.message);
+    console.log(data)
+    loadClipboard(data.some);
 }
 
 createButton.addEventListener('click', createClipboard);
-//Event listener for loading clipboard templates
-window.addEventListener('load', loadClipboard);
