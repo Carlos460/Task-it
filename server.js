@@ -27,13 +27,16 @@ server.use(express.urlencoded({ extended: true }));
 
 //Route Imports
 let homeRoute = require('./source/routes/index.js');
-let authRoute = require('./source/routes/api/user.js');
 let profileRoute = require('./source/routes/profile');
+
+let authRoute = require('./source/routes/api/user.js');
+let clipboardRoute = require('./source/routes/api/clipboard.js');
 
 //Using Route Imports
 server.use('/', homeRoute);
 server.use('/profile', profileRoute);
 server.use('/api/user', authRoute);
+server.use('/api/clipboard', clipboardRoute);
 
 //Server Listening to Requests!!!
 server.listen(PORT, () => {

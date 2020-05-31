@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/components/button.css">
     <link rel="stylesheet" href="/css/components/profile-head.css">
     <script defer src="/js/clipboardload.js"></script>
+    <script defer src="/js/createclipboard.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
     <h1>Welcome @<%= username%>!</h1>
     <div class="profile-head">
         <div class="button-container">
-            <button class="button-primary">New Clipboard</button>
+            <button class="button-primary" id="create-button">New Clipboard</button>
             <button class="button-primary">Remove Clipboard</button>
             <button class="button-primary">History</button>
         </div>
