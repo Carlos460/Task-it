@@ -4,6 +4,7 @@
     background-color: var(--primary-color);
     height: 5rem;
     width: 100%;
+    color: white;
 }
 .brand {
 
@@ -18,4 +19,7 @@
     padding: 2rem;
     text-decoration: none;
     color: white;
+}
+.navbar > h1 {
+    padding: 1rem;
 }

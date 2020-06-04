@@ -1,6 +1,7 @@
 .button-container {
     margin: 1rem 0rem;
     display: flex;
+    width: 80%;
     justify-content: space-around;
 }
 .button-primary {

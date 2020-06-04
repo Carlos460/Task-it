@@ -7,7 +7,7 @@ const workspace = document.querySelector('.workspace');
 function clipboardElement(data) {
     const clipboardHTML = `
     <div>
-    <h1> Clipboard Created:${data}</h1>
+    <h1> Clipboard Created: ${data}</h1>
     </div>
     `;
     return clipboardHTML;
@@ -27,8 +27,14 @@ function loadClipboard(data) {
 async function createClipboard() {
     const response = await fetch('http://localhost:8080/api/clipboard/add', { method: 'POST' });
     const data = await response.json();
-    console.log(data)
-    loadClipboard(data.some);
+    loadClipboard(data.message);
+}
+
+async function getClipboard() {
+    const response = await fetch('http://localhost:8080/api/clipboard', { method: 'GET' });
+    const data = await response.json();
+    loadClipboard(data.clipboard.title);
 }
 
 createButton.addEventListener('click', createClipboard);
+window.addEventListener('load', getClipboard);
