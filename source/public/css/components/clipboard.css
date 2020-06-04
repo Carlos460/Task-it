@@ -1,0 +1,19 @@
+.workspace {
+    display: flex;
+    justify-content: center;
+}
+.clipboard-container { 
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 30rem;
+    min-height: 5rem;
+    text-align: center;
+}
+.tasks-container {
+    justify-content: space-around;
+    width: 100%;
+    color: white;
+    margin:1rem;
+    text-align: left;
+}

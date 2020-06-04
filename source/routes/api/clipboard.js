@@ -6,7 +6,6 @@ router.post('/add', (req, res) => {
     let user = "panda";
     console.log(`New clipboard was created from ${user}`);
     res.json({ message: "New clipboard was created!" });
-    // Make new clipboard
 })
 
 router.get('/', (req, res) => {

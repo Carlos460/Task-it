@@ -1,18 +1,35 @@
 const createButton = document.querySelector('#create-button');
 const workspace = document.querySelector('.workspace');
-
-// Getting data from the database
+// task template
+function taskElement(task) {
+    let taskHTML = `
+        <h2>${task}</h2>
+    `;
+    return taskHTML;
+}
 
 // clipboard element Template
 function clipboardElement(data) {
     const clipboardHTML = `
-    <div>
-    <h1> Clipboard Created: ${data}</h1>
+    <div class="clipboard-container">
+        <h1>${data}</h1>
+        <div class="tasks-container"></div>
+
     </div>
     `;
     return clipboardHTML;
 };
-
+// loads each task in the tasks array
+function loadTasks(tasks) {
+    const tasksContainer = document.querySelector('.tasks-container');
+    tasks.forEach(task => {
+        console.log(task)
+        const taskFrag = document
+            .createRange()
+            .createContextualFragment(taskElement(task));
+        tasksContainer.appendChild(taskFrag);
+    });
+}
 // Loadclipboard function
 function loadClipboard(data) {
     const clipboardFrag = document
@@ -34,6 +51,7 @@ async function getClipboard() {
     const response = await fetch('http://localhost:8080/api/clipboard', { method: 'GET' });
     const data = await response.json();
     loadClipboard(data.clipboard.title);
+    loadTasks(data.clipboard.tasks);
 }
 
 createButton.addEventListener('click', createClipboard);
