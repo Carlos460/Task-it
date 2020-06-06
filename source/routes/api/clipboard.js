@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
         clipboard: {
             title: "Sample to-do list",
             author: "panda",
-            tasks: ["get the code done", "fix the button", "finish the last model", "research about other routes"]
+            tasks: ["get the code done", "fix the button"
+                , "finish the last model", "research about other routes"
+                , "get the code done", "fix the button", "finish the last model"
+                , "research about other routes"]
         }
     });
 });

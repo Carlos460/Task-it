@@ -1,19 +1,35 @@
 .workspace {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    height: 70vh;
 }
 .clipboard-container { 
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
     width: 30rem;
-    min-height: 5rem;
+    max-height: 30rem;
     text-align: center;
+}
+.clipboard-title {
+    padding: 0.8rem 0rem;
 }
 .tasks-container {
     justify-content: space-around;
     width: 100%;
     color: white;
-    margin:1rem;
     text-align: left;
+}
+.task {
+    padding: 0.5rem 0rem;
+    background-color: var(--primary-color);
+    height :3rem;
+    padding-left: 1rem;
+    border-top: solid white 2px;
+    transition: all 0.3s ease-in-out;
+}
+.task:hover{
+    cursor: pointer;
+    background-color: rgb(252, 133, 133);
+    padding-left: 2rem;
 }

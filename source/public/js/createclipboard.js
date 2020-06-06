@@ -3,7 +3,10 @@ const workspace = document.querySelector('.workspace');
 // task template
 function taskElement(task) {
     let taskHTML = `
-        <h2>${task}</h2>
+    <div class="task" unselectable="on">
+        <h2 unselectable="on">${task}</h2>
+    </div>
+
     `;
     return taskHTML;
 }
@@ -12,7 +15,9 @@ function taskElement(task) {
 function clipboardElement(data) {
     const clipboardHTML = `
     <div class="clipboard-container">
-        <h1>${data}</h1>
+            <div class="clipboard-title">
+                <h1>${data}</h1>        
+            </div>
         <div class="tasks-container"></div>
 
     </div>
