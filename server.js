@@ -13,8 +13,8 @@ const PORT = 8080;
 mongoose.connect(
 	process.env.YOUR_DB_KEY,
 	{ useNewUrlParser: true, useUnifiedTopology: true },
-	() => console.log('*** Connected with DataBase!!! ***')
-);
+	() => { console.log('*** Connected with DataBase!!! ***')
+});
 
 //Server Setup
 server.set('views', './source/views');
@@ -29,6 +29,7 @@ server.use(express.urlencoded({ extended: true }));
 let homeRoute = require('./source/routes/index.js');
 let profileRoute = require('./source/routes/profile');
 
+//Route Imports for api
 let authRoute = require('./source/routes/api/user.js');
 let clipboardRoute = require('./source/routes/api/clipboard.js');
 

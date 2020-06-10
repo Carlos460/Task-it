@@ -1,24 +1,46 @@
 const router = require('express').Router();
+const Clipboard = require('../../model/Clipboard')
 const { getUserData } = require('../../tools/profileData.js')
 
-router.post('/add', (req, res) => {
-    // get user data
-    let user = "panda";
-    console.log(`New clipboard was created from ${user}`);
-    res.json({ message: "New clipboard was created!" });
+router.post('/', getUserData, async (req, res) => {
+  //getting user id
+  const userId = req.userData._id;
+
+  //getting title from body
+  const clipboardTitle = req.body.title;
+
+  //making new clipboard with user ID
+  const clipbaordObj = new Clipboard({
+    title: clipboardTitle,
+    author: userId,
+    tasks: ['sample task']
+  });
+
+  //sending data to database
+  try {
+    console.log('clipboard is being saved')
+    const savedClipboard = await clipbaordObj.save();
+    res.json({ message: 'user was saved!' })
+    console.log(`clipboard was made: ${savedClipboard}`);
+  } catch {
+    res.json({ message: 'user was not made!' });
+  }
 })
 
 router.get('/', (req, res) => {
-    res.json({
-        clipboard: {
-            title: "Sample to-do list",
-            author: "panda",
-            tasks: ["get the code done", "fix the button"
-                , "finish the last model", "research about other routes"
-                , "get the code done", "fix the button", "finish the last model"
-                , "research about other routes"]
-        }
-    });
+  res.json({
+    clipboard: {
+      title: "Sample to-do list",
+      author: "panda",
+      tasks: ["get the code done", "fix the button"
+        , "finish the last model", "research about other routes"
+        , "get the code done", "fix the button", "finish the last model"
+        , "research about other routes"]
+    }
+  });
 });
 
+router.delete('/', (req, res) => {
+  res.json({ message: 'clipboard got deleted!' })
+});
 module.exports = router;

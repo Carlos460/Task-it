@@ -1,5 +1,6 @@
 const createButton = document.querySelector('#create-button');
 const workspace = document.querySelector('.workspace');
+
 // task template
 function taskElement(task) {
     let taskHTML = `
@@ -47,7 +48,7 @@ function loadClipboard(data) {
 
 // requests to create a clipboard
 async function createClipboard() {
-    const response = await fetch('http://localhost:8080/api/clipboard/add', { method: 'POST' });
+    const response = await fetch('http://localhost:8080/api/clipboard', { method: 'POST' });
     const data = await response.json();
     loadClipboard(data.message);
 }
