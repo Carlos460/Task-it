@@ -1,14 +1,15 @@
 .workspace {
     display: flex;
     justify-content: space-around;
-    height: 70vh;
+    flex-wrap: wrap;
+    min-height: 70vh;
 }
 .clipboard-container { 
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
     width: 30rem;
-    max-height: 30rem;
+    min-height: 30rem;
     text-align: center;
 }
 .clipboard-title {
