@@ -5,10 +5,8 @@ const { getUserData } = require('../../tools/profileData.js')
 router.post('/', getUserData, async (req, res) => {
   //getting user id
   const userId = req.userData._id;
-
   //getting title from body
   const clipboardTitle = req.body.title;
-
   //making new clipboard with user ID
   const clipbaordObj = new Clipboard({
     title: clipboardTitle,
@@ -18,14 +16,12 @@ router.post('/', getUserData, async (req, res) => {
 
   //sending data to database
   try {
-    console.log('clipboard is being saved')
     const savedClipboard = await clipbaordObj.save();
-    res.json({ message: 'user was saved!' })
-    console.log(`clipboard was made: ${savedClipboard}`);
+    res.json({ message: clipboardTitle });
   } catch {
     res.json({ message: 'user was not made!' });
   }
-})
+});
 
 router.get('/', (req, res) => {
   res.json({
