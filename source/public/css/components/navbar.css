@@ -6,12 +6,13 @@
     width: 100%;
     color: white;
 }
-.brand {
-
+.brand-container {
     width: 20rem;
     padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-around;
 }
-.brand > a {
+.brand-container > a {
     text-decoration: none;
     color: white;
 }

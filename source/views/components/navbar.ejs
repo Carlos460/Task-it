@@ -1,13 +1,16 @@
 <div class="navbar">
-	<div class="brand">
+	<div class="brand-container">
 		<a href="/">
 			<h1>Task-It</h1>
 		</a>
+		<% if (typeof username !== "undefined"){ %>
+		<h1> <%= username%>!</h1>
+		<%}%>
 	</div>
 	<% if (typeof username === "undefined") { %>
-	<a class="links" href="/profile/login">Login</a>
-	<% } else {%>
-	<a class="links" href="/api/user/logout">Logout</a>
-	<h1>Welcome <%= username%>!</h1>
-	<% } %>
-</div>
+		<a class="links" href="/profile/login">Login</a>
+		<% } else {%>
+		<a class="links" href="/api/user/logout">Logout</a>
+
+		<% } %>
+	</div>
