@@ -16,7 +16,7 @@ router.post('/', getUserData, async (req, res) => {
 
   //sending data to database
   try {
-    const savedClipboard = await clipbaordObj.save();
+    //const savedClipboard = await clipbaordObj.save();
     res.json({ message: clipboardTitle });
   } catch {
     res.json({ message: 'user was not made!' });

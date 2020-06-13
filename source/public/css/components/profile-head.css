@@ -1,13 +1,21 @@
+.menu-container{
+    padding: 0rem 0.5rem;
+}
 .profile-head {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     background-color: var(--primary-color);
     margin: 2rem auto;
-    width: 80%;
-    height: 5rem;
+    max-width: 50rem;
+    min-height: 5rem;
     border-radius: 0.5rem;
+    padding:1rem
 }
 .profile-head > h1 {
     text-align: center;
     color: white;
+}
+.profile-head-input {
+    width: 100%;
 }

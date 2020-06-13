@@ -19,18 +19,18 @@
 
 <body>
     <%- include('components/navbar') %>
-
-    <div class="profile-head">
-        <div class="button-container">
-            <button class="button-primary" id="create-button">New Clipboard</button>
-            <button class="button-primary">Remove Clipboard</button>
-            <button class="button-primary">History</button>
-        </div>
-    </div>
-    <div class="titleForClipboard">
-        <div class="form-group hidden">
-            <label for="title">type title...</label>
-            <input id="title-input" type="text">
+    <div class="menu-container">
+        <div class="profile-head">
+            <div class="button-container">
+                <button class="button-primary" id="create-button">New Clipboard</button>
+                <button class="button-primary">Dashboard</button>
+            </div>
+            <div class="titleForClipboard profile-head-input">
+                <div class="form-group no-margin hidden">
+                    <label for="title">type title...</label>
+                    <input id="title-input" type="text">
+                </div>
+            </div>
         </div>
     </div>
     <div class="workspace">
