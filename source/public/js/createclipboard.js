@@ -7,22 +7,24 @@ const titleInput = document.querySelector('#title-input');
 function taskElement(task) {
     let taskHTML = `
     <div class="task" unselectable="on">
-        <h2 unselectable="on">${task}</h2>
-    </div>
-
-    `;
+        <div class="task-text">${task}</div>
+        <div id="delete-task-button">X</div>  
+    </div>`;
     return taskHTML;
-}
+};
 
 // clipboard element Template
 function clipboardElement(data) {
     const clipboardHTML = `
     <div class="clipboard-container">
             <div class="clipboard-title">
-                <h1>${data}</h1>        
+                <h1>${data}</h1>
             </div>
         <div class="tasks-container"></div>
-
+        <div class="task-input-container">
+            <button class="button-primary">Add</button>
+            <input type="text" id="task-input">
+        </div>
     </div>
     `;
     return clipboardHTML;
@@ -71,14 +73,15 @@ createButton.addEventListener('click', () => {
     titleElement.classList.remove('hidden');
     titleInput.focus();
 });
-window.addEventListener('keypress', pressed => {
-    if (pressed.key === 'Enter' && !titleElement.classList.contains('hidden')) {
+window.addEventListener('keypress', e => {
+    if (e.key === 'Enter' && !titleElement.classList.contains('hidden')) {
         const title = { title: titleInput.value };
         createClipboard(title);
         titleElement.classList.add('hidden');
         titleInput.value = "";
+    } else if (e.key === 'Escape') {
+        console.log("esc pressed");
     }
 });
-
 
 window.addEventListener('load', loadAllClipboards);

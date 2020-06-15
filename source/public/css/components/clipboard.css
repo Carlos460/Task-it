@@ -2,35 +2,74 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    min-height: 70vh;
+    min-height:50rem;
 }
 .clipboard-container { 
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
     width: 30rem;
-    min-height: 30rem;
+
+    margin: 1rem;
     text-align: center;
+    position: relative;
 }
 .clipboard-title {
     padding: 0.8rem 0rem;
 }
 .tasks-container {
-    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     color: white;
     text-align: left;
+    height: 24rem;
 }
-.task {
-    padding: 0.5rem 0rem;
+.task{
+    display: flex;
+    border-top: solid white 2px;
+    position: relative;
+}
+.task-text {
+    display: flex;
     background-color: var(--primary-color);
+    width: 100%;
     height :3rem;
     padding-left: 1rem;
-    border-top: solid white 2px;
+    padding-top: 0.5rem;
     transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 1.5rem;
 }
-.task:hover{
+.task-text:hover{
     cursor: pointer;
     background-color: rgb(252, 133, 133);
     padding-left: 2rem;
 }
+.done {
+    text-decoration: line-through white;
+}
+#delete-task-button {
+    position:absolute;
+    right: 0px;
+    font-size: 3rem;
+    background-color: var(--primary-button);
+    height: 3rem;
+    width: 3rem;
+    outline: white;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+#delete-task-button:hover {
+    background-color: rgb(252, 133, 133);
+    cursor: pointer;
+    user-select: none;
+}
+
+.task-input-container{
+    height: 3rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
