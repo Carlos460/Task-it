@@ -13,8 +13,9 @@ const PORT = 8080;
 mongoose.connect(
 	process.env.YOUR_DB_KEY,
 	{ useNewUrlParser: true, useUnifiedTopology: true },
-	() => { console.log('*** Connected with DataBase!!! ***')
-});
+	() => {
+		console.log('*** Connected with DataBase!!! ***')
+	});
 
 //Server Setup
 server.set('views', './source/views');
@@ -32,12 +33,14 @@ let profileRoute = require('./source/routes/profile');
 //Route Imports for api
 let authRoute = require('./source/routes/api/user.js');
 let clipboardRoute = require('./source/routes/api/clipboard.js');
+let taskRoute = require('./source/routes/api/task.js');
 
 //Using Route Imports
 server.use('/', homeRoute);
 server.use('/profile', profileRoute);
 server.use('/api/user', authRoute);
 server.use('/api/clipboard', clipboardRoute);
+server.use('/api/task', taskRoute);
 
 //Server Listening to Requests!!!
 server.listen(PORT, () => {

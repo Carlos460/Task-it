@@ -8,27 +8,33 @@ function taskElement(task) {
     let taskHTML = `
     <div class="task" unselectable="on">
         <div class="task-text">${task}</div>
-        <div id="delete-task-button">X</div>  
+        <div class="delete" id="delete-task-button">X</div>  
     </div>`;
     return taskHTML;
 };
 
 // clipboard element Template
 function clipboardElement(data) {
-    const clipboardHTML = `
-    <div class="clipboard-container">
-            <div class="clipboard-title">
-                <h1>${data}</h1>
-            </div>
-        <div class="tasks-container"></div>
-        <div class="task-input-container">
-            <button class="button-primary">Add</button>
-            <input type="text" id="task-input">
-        </div>
-    </div>
-    `;
+    const clipboardHTML = `<div class="clipboard-container">
+                                <div class="clipboard-title">
+                                    <h1>${data}</h1>
+                                </div>
+                            <div class="tasks-container"></div>
+                                <div class="task-input-container">
+                                    <button class="button-primary add-task">Add</button>
+                                    <input class="task-input-class" type="text" id="task-input">
+                                </div>
+                            </div>`;
     return clipboardHTML;
 };
+// loads single tasks created by client
+function loadTask(taskText, tasksContainer) {
+    const taskFrag = document
+        .createRange()
+        .createContextualFragment(taskElement(taskText));
+    tasksContainer.appendChild(taskFrag);
+}
+
 // loads each task in the tasks array
 function loadTasks(tasks) {
     const tasksContainer = document.querySelector('.tasks-container');
@@ -67,6 +73,17 @@ async function loadAllClipboards() {
     const data = await response.json();
     loadClipboard(data.clipboard.title);
     loadTasks(data.clipboard.tasks);
+}
+async function addTaskToClipboard(inputData, tasksContainer) {
+    const response = await fetch('/api/task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputData)
+    });
+    const data = await response.json();
+    loadTask(data, tasksContainer);
 }
 
 createButton.addEventListener('click', () => {

@@ -2,17 +2,14 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    min-height:50rem;
 }
 .clipboard-container { 
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
     width: 30rem;
-
     margin: 1rem;
     text-align: center;
-    position: relative;
 }
 .clipboard-title {
     padding: 0.8rem 0rem;
@@ -23,7 +20,7 @@
     width: 100%;
     color: white;
     text-align: left;
-    height: 24rem;
+    min-height: 9rem;
 }
 .task{
     display: flex;
@@ -52,24 +49,25 @@
 #delete-task-button {
     position:absolute;
     right: 0px;
-    font-size: 3rem;
+    font-size: 2rem;
     background-color: var(--primary-button);
     height: 3rem;
     width: 3rem;
     outline: white;
     color: white;
     transition: all 0.3s ease-in-out;
+    padding: 0rem 0.5rem 0.5rem 0.4rem;
 }
 #delete-task-button:hover {
     background-color: rgb(252, 133, 133);
     cursor: pointer;
     user-select: none;
+    font-size: 2.2rem;
 }
 
 .task-input-container{
+    margin: 2rem 0rem;
     height: 3rem;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
 }
 
