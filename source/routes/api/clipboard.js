@@ -8,35 +8,33 @@ router.post('/', getUserData, async (req, res) => {
   //getting title from body
   const clipboardTitle = req.body.title;
   //making new clipboard with user ID
-  const clipbaordObj = new Clipboard({
+  const sampleTask = ['sample task']
+
+  const clipboardObj = new Clipboard({
     title: clipboardTitle,
     author: userId,
-    tasks: ['sample task']
+    tasks: sampleTask
   });
 
   //sending data to database
   try {
-    //const savedClipboard = await clipbaordObj.save();
-    res.json({ message: clipboardTitle });
+    const savedClipboard = await clipboardObj.save();
+    res.json({ message: clipboardTitle, tasks: sampleTask });
   } catch {
     res.json({ message: 'user was not made!' });
   }
 });
 
-router.get('/', (req, res) => {
-  res.json({
-    clipboard: {
-      title: "Sample to-do list",
-      author: "panda",
-      tasks: ["get the code done", "fix the button"
-        , "finish the last model", "research about other routes"
-        , "get the code done", "fix the button", "finish the last model"
-        , "research about other routes"]
-    }
-  });
+router.get('/', getUserData, async (req, res) => {
+  const userId = req.userData._id;
+
+  const clipboardList = await Clipboard.find({ author: userId });
+
+  res.json(clipboardList);
 });
 
-router.delete('/', (req, res) => {
+router.delete('/', getUserData, async (req, res) => {
   res.json({ message: 'clipboard got deleted!' })
 });
+
 module.exports = router;

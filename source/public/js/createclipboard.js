@@ -36,14 +36,23 @@ function loadTask(taskText, tasksContainer) {
 }
 
 // loads each task in the tasks array
-function loadTasks(tasks) {
-    const tasksContainer = document.querySelector('.tasks-container');
-    tasks.forEach(task => {
-        const taskFrag = document
-            .createRange()
-            .createContextualFragment(taskElement(task));
-        tasksContainer.appendChild(taskFrag);
+function loadTasks(tasks, containerList, targetContainerTitle) {
+    containerList.forEach(childContainer => {
+        if (childContainer.tagName === 'DIV' && childContainer.childNodes[1].childNodes[1].innerHTML === targetContainerTitle) {
+            console.log(childContainer);
+            tasks.forEach(task => {
+                const tasksContainer = childContainer.childNodes[3];
+                const taskFrag = document
+                    .createRange()
+                    .createContextualFragment(taskElement(task));
+                tasksContainer.appendChild(taskFrag);
+            });
+
+        }
+
+
     });
+
 }
 // Loadclipboard function
 function loadClipboard(data) {
@@ -53,7 +62,6 @@ function loadClipboard(data) {
     // Apend clipboard to workspace in the DOM
     workspace.appendChild(clipboardFrag);
 }
-
 
 // requests to create a clipboard
 async function createClipboard(inputData) {
@@ -66,14 +74,21 @@ async function createClipboard(inputData) {
     });
     const data = await response.json();
     loadClipboard(data.message);
+    loadTasks(data.tasks);
 }
 
 async function loadAllClipboards() {
     const response = await fetch('/api/clipboard', { method: 'GET' });
     const data = await response.json();
-    loadClipboard(data.clipboard.title);
-    loadTasks(data.clipboard.tasks);
+    data.forEach(clipboard => {
+        loadClipboard(clipboard.title);
+    });
+    const workspaceChildNodes = workspace.childNodes;
+    data.forEach(clipboard => {
+        loadTasks(clipboard.tasks, workspaceChildNodes, clipboard.title);
+    });
 }
+
 async function addTaskToClipboard(inputData, tasksContainer) {
     const response = await fetch('/api/task', {
         method: 'POST',
@@ -101,4 +116,6 @@ window.addEventListener('keypress', e => {
     }
 });
 
-window.addEventListener('load', loadAllClipboards);
+window.addEventListener('load', (e) => {
+    loadAllClipboards()
+});
