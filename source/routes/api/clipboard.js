@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const Clipboard = require('../../model/Clipboard')
-const { getUserData } = require('../../tools/profileData.js')
+const {
+  getUserData
+} = require('../../tools/profileData.js')
 
 router.post('/', getUserData, async (req, res) => {
   //getting user id
@@ -19,22 +21,31 @@ router.post('/', getUserData, async (req, res) => {
   //sending data to database
   try {
     const savedClipboard = await clipboardObj.save();
-    res.json({ message: clipboardTitle, tasks: sampleTask });
+    res.json({
+      message: clipboardTitle,
+      tasks: sampleTask
+    });
   } catch {
-    res.json({ message: 'user was not made!' });
+    res.json({
+      message: 'user was not made!'
+    });
   }
 });
 
 router.get('/', getUserData, async (req, res) => {
   const userId = req.userData._id;
 
-  const clipboardList = await Clipboard.find({ author: userId });
+  const clipboardList = await Clipboard.find({
+    author: userId
+  });
 
   res.json(clipboardList);
 });
 
 router.delete('/', getUserData, async (req, res) => {
-  res.json({ message: 'clipboard got deleted!' })
+  res.json({
+    message: 'clipboard got deleted!'
+  })
 });
 
 module.exports = router;
