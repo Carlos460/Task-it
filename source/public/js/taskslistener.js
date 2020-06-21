@@ -9,6 +9,12 @@ workspace.addEventListener('click', (e) => {
         }
     }
     if (e.target.classList.contains('delete')) {
+        const targetClipboardTitle = targetTask.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML;
+        const targetTaskText = targetTask.parentElement.childNodes[1].innerHTML;
+        removeTaskFromClipboard({
+            title: targetClipboardTitle,
+            taskText: targetTaskText
+        });
         targetTask.parentElement.remove();
     }
     if (e.target.classList.contains('add-task')) {
@@ -19,7 +25,6 @@ workspace.addEventListener('click', (e) => {
             clipboardTitle: targetClipboardTitle,
             taskText: targetTaskInput.value
         };
-        console.log(taskData);
         if (targetTaskInput.value !== '') {
             addTaskToClipboard(taskData, targetTasksContainer);
         }

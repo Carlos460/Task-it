@@ -38,7 +38,6 @@ router.get('/', getUserData, async (req, res) => {
   const clipboardList = await Clipboard.find({
     author: userId
   });
-
   res.json(clipboardList);
 });
 

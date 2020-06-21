@@ -15,16 +15,17 @@ function taskElement(task) {
 
 // clipboard element Template
 function clipboardElement(data) {
-    const clipboardHTML = `<div class="clipboard-container">
-                                <div class="clipboard-title">
-                                    <h1>${data}</h1>
-                                </div>
-                            <div class="tasks-container"></div>
-                                <div class="task-input-container">
-                                    <button class="button-primary add-task">Add</button>
-                                    <input class="task-input-class" type="text" id="task-input">
-                                </div>
-                            </div>`;
+    const clipboardHTML = `
+    <div class="clipboard-container">
+        <div class="clipboard-title">
+            <h1>${data}</h1>
+        </div>
+        <div class="tasks-container"></div>
+            <div class="task-input-container">
+                <button class="button-primary add-task">Add</button>
+                <input class="task-input-class" type="text" id="task-input">
+            </div>
+    </div>`;
     return clipboardHTML;
 };
 // loads single tasks created by client
@@ -39,7 +40,6 @@ function loadTask(taskText, tasksContainer) {
 function loadTasks(tasks, containerList, targetContainerTitle) {
     containerList.forEach(childContainer => {
         if (childContainer.tagName === 'DIV' && childContainer.childNodes[1].childNodes[1].innerHTML === targetContainerTitle) {
-            console.log(childContainer);
             tasks.forEach(task => {
                 const tasksContainer = childContainer.childNodes[3];
                 const taskFrag = document
@@ -78,7 +78,9 @@ async function createClipboard(inputData) {
 }
 
 async function loadAllClipboards() {
-    const response = await fetch('/api/clipboard', { method: 'GET' });
+    const response = await fetch('/api/clipboard', {
+        method: 'GET'
+    });
     const data = await response.json();
     data.forEach(clipboard => {
         loadClipboard(clipboard.title);
@@ -100,14 +102,26 @@ async function addTaskToClipboard(inputData, tasksContainer) {
     const data = await response.json();
     loadTask(data, tasksContainer);
 }
-
+async function removeTaskFromClipboard(inputData) {
+    const response = await fetch('/api/task', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputData)
+    });
+    const data = await response.json();
+    console.log(data.status);
+}
 createButton.addEventListener('click', () => {
     titleElement.classList.remove('hidden');
     titleInput.focus();
 });
 window.addEventListener('keypress', e => {
     if (e.key === 'Enter' && !titleElement.classList.contains('hidden')) {
-        const title = { title: titleInput.value };
+        const title = {
+            title: titleInput.value
+        };
         createClipboard(title);
         titleElement.classList.add('hidden');
         titleInput.value = "";
