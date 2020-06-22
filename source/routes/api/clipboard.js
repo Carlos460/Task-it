@@ -9,21 +9,18 @@ router.post('/', getUserData, async (req, res) => {
   const userId = req.userData._id;
   //getting title from body
   const clipboardTitle = req.body.title;
-  //making new clipboard with user ID
-  const sampleTask = ['sample task']
-
+  //making new clipboard
   const clipboardObj = new Clipboard({
     title: clipboardTitle,
     author: userId,
-    tasks: sampleTask
+    tasks: []
   });
 
   //sending data to database
   try {
     const savedClipboard = await clipboardObj.save();
     res.json({
-      message: clipboardTitle,
-      tasks: sampleTask
+      title: clipboardTitle
     });
   } catch {
     res.json({
@@ -42,9 +39,15 @@ router.get('/', getUserData, async (req, res) => {
 });
 
 router.delete('/', getUserData, async (req, res) => {
+  const clipboardTitle = req.body.title;
+
+  const clipboard = await Clipboard.deleteOne({
+    title: clipboardTitle
+  });
+
   res.json({
-    message: 'clipboard got deleted!'
-  })
+    status: clipboardTitle
+  });
 });
 
 module.exports = router;

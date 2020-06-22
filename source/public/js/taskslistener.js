@@ -30,4 +30,12 @@ workspace.addEventListener('click', (e) => {
         }
         targetTaskInput.value = '';
     }
+    if (e.target.classList.contains('delete-clipboard-button')) {
+        const targetClipboardTitle = targetTask.parentElement.childNodes[1].innerHTML;
+        const clipboardData = {
+            title: targetClipboardTitle
+        }
+        removeClipboard(clipboardData);
+        targetTask.parentElement.parentElement.remove();
+    }
 });

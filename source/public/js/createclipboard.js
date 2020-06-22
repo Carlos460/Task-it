@@ -8,7 +8,7 @@ function taskElement(task) {
     let taskHTML = `
     <div class="task" unselectable="on">
         <div class="task-text">${task}</div>
-        <div class="delete" id="delete-task-button">X</div>  
+        <button class="delete" id="delete-task-button">X</button>  
     </div>`;
     return taskHTML;
 };
@@ -19,6 +19,7 @@ function clipboardElement(data) {
     <div class="clipboard-container">
         <div class="clipboard-title">
             <h1>${data}</h1>
+            <button class="delete-clipboard-button" >X</button>
         </div>
         <div class="tasks-container"></div>
             <div class="task-input-container">
@@ -47,12 +48,8 @@ function loadTasks(tasks, containerList, targetContainerTitle) {
                     .createContextualFragment(taskElement(task));
                 tasksContainer.appendChild(taskFrag);
             });
-
         }
-
-
     });
-
 }
 // Loadclipboard function
 function loadClipboard(data) {
@@ -73,8 +70,7 @@ async function createClipboard(inputData) {
         body: JSON.stringify(inputData)
     });
     const data = await response.json();
-    loadClipboard(data.message);
-    loadTasks(data.tasks);
+    loadClipboard(data.title);
 }
 
 async function loadAllClipboards() {
@@ -111,8 +107,19 @@ async function removeTaskFromClipboard(inputData) {
         body: JSON.stringify(inputData)
     });
     const data = await response.json();
-    console.log(data.status);
 }
+async function removeClipboard(bodyData) {
+    const response = await fetch('/api/clipboard', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+    });
+    const data = await response.json();
+    console.log(data);
+}
+
 createButton.addEventListener('click', () => {
     titleElement.classList.remove('hidden');
     titleInput.focus();
