@@ -1,5 +1,5 @@
 # Task-it
-Task-it is a Node web-service that keeps track of personal tasks
+Task-it is a Express web-service that keeps track of personal tasks
 
 # Installation
 Make sure you have Node and NPM installed. You will also need [MangoDB](https://www.mongodb.com/) database to hook up.
