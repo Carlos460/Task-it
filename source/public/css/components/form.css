@@ -1,32 +1,37 @@
 .form-container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: white;
-    margin:5rem 2rem;
-    width: 20rem; 
+    margin: 5rem 2rem;
+    width: 20rem;
     background-color: var(--primary-color);
     border-radius: 1rem;
 }
-.form-container > form > h1 {
+
+.form-container>form>h1 {
     margin: 0.8rem 0rem;
     text-align: center;
 }
+
 .form-group {
     display: block;
     margin: 1rem 1rem;
     text-align: center;
 }
 
-.form-group > * {
+.form-group>* {
     display: block;
     margin: 0.5rem 0rem;
 }
-.form-group > input {
+
+.form-group>input {
     margin: auto;
     padding: 0.4rem;
     border-radius: 4px;
     outline: none;
+    border: white;
     width: 90%;
 }
+
 .hidden {
     display: none;
 }
