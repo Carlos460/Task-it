@@ -11,13 +11,13 @@ const PORT = 8080;
 
 //Connect to DataBase
 mongoose.connect(
-	process.env.YOUR_DB_KEY, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	},
-	() => {
-		console.log('*** Connected with DataBase!!! ***')
-	});
+  process.env.YOUR_DB_KEY, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
+  () => {
+    console.log('*** Connected with DataBase!!! ***')
+  });
 
 //Server Setup
 server.set('views', './source/views');
@@ -27,7 +27,7 @@ server.use(cookieParser());
 server.use(express.json());
 server.use(express.static('./source/public'));
 server.use(express.urlencoded({
-	extended: true
+  extended: true
 }));
 
 //Route Imports
@@ -48,5 +48,5 @@ server.use('/api/task', taskRoute);
 
 //Server Listening to Requests!!!
 server.listen(PORT, () => {
-	console.log(`*** Server is running on: localhost:${PORT} ***`);
+  console.log(`*** Server is running on: localhost:${PORT} ***`);
 });

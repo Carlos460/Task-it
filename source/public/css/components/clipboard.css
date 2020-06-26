@@ -7,16 +7,37 @@
 .clipboard-container {
     border-radius: 5px;
     background-color: var(--primary-color);
+    box-shadow: 5px 10px 18px #888888;
     color: white;
     width: 30rem;
     margin: 1rem;
     text-align: center;
     overflow: hidden;
+    position: relative;
 }
 
 .clipboard-title {
     padding: 0.8rem 0rem;
 }
+
+.delete-clipboard-button {
+    position: absolute;
+    background-color: var(--primary-color);
+    color: white;
+    outline: none;
+    border: white solid 1px;
+    top: 0rem;
+    right: 0rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.delete-clipboard-button:hover {
+    background-color: var(--primary-light);
+    cursor: pointer;
+}
+
+
 
 .tasks-container {
     display: flex;
@@ -31,6 +52,8 @@
     display: flex;
     border-top: solid white 2px;
     position: relative;
+    height: 3rem;
+    overflow: hidden;
 }
 
 .task-text {
@@ -49,6 +72,10 @@
     cursor: pointer;
     background-color: var(--primary-light);
     padding-left: 2rem;
+}
+
+.remove-task {
+    height: 0rem;
 }
 
 .done {
