@@ -13,21 +13,18 @@
     <link rel="stylesheet" href="/css/components/profile-head.css">
     <link rel="stylesheet" href="/css/components/clipboard.css">
     <link rel="stylesheet" href="/css/components/form.css">
-    <script defer src="/js/createclipboard.js"></script>
+    <script defer src="/js/clipboard.js"></script>
 </head>
 
 <body>
     <%- include('components/navbar') %>
     <div class="menu-container">
         <div class="profile-head">
-            <div class="button-container">
-                <button class="button-primary" id="create-button">New Clipboard</button>
+            <div class="profile-head-button">
+                <button class="add-clipboard-button" id="create-button">+</button>
             </div>
-            <div class="titleForClipboard profile-head-input">
-                <div class="form-group no-margin hidden">
-                    <label for="title">type title...</label>
-                    <input id="title-input" type="text">
-                </div>
+            <div class="profile-head-input">
+                <input id="title-input" placeholder="New Clipboard" autocomplete="off" type="text">
             </div>
         </div>
     </div>

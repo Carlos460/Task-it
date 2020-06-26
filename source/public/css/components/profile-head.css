@@ -1,21 +1,43 @@
-.menu-container{
-    padding: 0rem 0.5rem;
-}
 .profile-head {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
     background-color: var(--primary-color);
-    margin: 2rem auto;
-    max-width: 50rem;
-    min-height: 5rem;
-    border-radius: 0.5rem;
-    padding:1rem
+    border-top: white 1px solid;
+    width: 100vw;
+    height: 3rem;
 }
-.profile-head > h1 {
-    text-align: center;
+
+.profile-head-button {
+    margin: auto 0.5rem;
+}
+
+.add-clipboard-button {
+    background-color: var(--primary-color);
+    outline: white solid;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.3s ease-in-out;
     color: white;
 }
+
+.add-clipboard-button:hover {
+    background-color: var(--primary-light);
+}
+
+.add-clipboard-button:active {
+    background-color: var(--primary-color);
+}
+
 .profile-head-input {
-    width: 100%;
+    margin: auto 0rem;
+    width: 15rem;
+}
+
+.profile-head-input>input {
+    margin: auto;
+    padding: 0.4rem;
+    border-radius: 4px;
+    outline: none;
+    border: white;
+    width: 90%;
 }

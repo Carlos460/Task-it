@@ -1,4 +1,4 @@
-const createButton = document.querySelector('#create-button');
+const addClipboardButton = document.querySelector('.add-clipboard-button');
 const workspace = document.querySelector('.workspace');
 const titleElement = document.querySelector('.form-group');
 const titleInput = document.querySelector('#title-input');
@@ -62,16 +62,20 @@ function loadClipboard(data) {
 }
 
 // requests to create a clipboard
-async function createClipboard(inputData) {
+async function createClipboard() {
+  const title = {
+    title: titleInput.value
+  };
   const response = await fetch('/api/clipboard', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(inputData)
+    body: JSON.stringify(title)
   });
   const data = await response.json();
   loadClipboard(data.title);
+  titleInput.value = "";
 }
 
 async function loadAllClipboards() {
@@ -121,20 +125,11 @@ async function removeClipboard(bodyData) {
   console.log(data);
 }
 
-createButton.addEventListener('click', () => {
-  titleElement.classList.remove('hidden');
-  titleInput.focus();
-});
+//Listens To create new clipboard
+addClipboardButton.addEventListener('click', createClipboard)
 window.addEventListener('keypress', e => {
-  if (e.key === 'Enter' && !titleElement.classList.contains('hidden')) {
-    const title = {
-      title: titleInput.value
-    };
+  if (e.key === 'Enter' && titleInput === document.activeElement) {
     createClipboard(title);
-    titleElement.classList.add('hidden');
-    titleInput.value = "";
-  } else if (e.key === 'Escape') {
-    console.log("esc pressed");
   }
 });
 
