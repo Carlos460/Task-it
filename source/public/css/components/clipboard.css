@@ -37,8 +37,6 @@
     cursor: pointer;
 }
 
-
-
 .tasks-container {
     display: flex;
     flex-direction: column;
@@ -54,6 +52,12 @@
     position: relative;
     height: 3rem;
     overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.remove-task {
+    height: 0rem;
+    border: none;
 }
 
 .task-text {
@@ -74,10 +78,6 @@
     padding-left: 2rem;
 }
 
-.remove-task {
-    height: 0rem;
-}
-
 .done {
     text-decoration: line-through white;
 }
@@ -87,7 +87,7 @@
     right: -7rem;
     color: white;
     font-size: 1.5rem;
-    background-color: var(--primary-color);
+    background-color: transparent;
     height: 3rem;
     width: 10rem;
     border: none;

@@ -5,22 +5,34 @@
     height: 5rem;
     width: 100%;
     color: white;
+    position: relative;
 }
+
 .brand-container {
     width: 20rem;
     padding: 1.4rem 3rem;
     display: flex;
     justify-content: space-around;
 }
-.brand-container > a {
+
+.navbar-options {
+    position: absolute;
+    right: 0rem;
+    padding: 1.8rem;
+    margin-right: 1rem;
+}
+
+.brand-container>a {
     text-decoration: none;
     color: white;
 }
+
 .links {
-    padding: 2rem;
+    margin: 2rem;
     text-decoration: none;
     color: white;
 }
-.navbar > h1 {
+
+.navbar>h1 {
     padding: 1rem;
 }

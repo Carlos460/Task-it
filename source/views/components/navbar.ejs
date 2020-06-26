@@ -7,10 +7,13 @@
 		<h1> <%= username%>!</h1>
 		<%}%>
 	</div>
-	<% if (typeof username === "undefined") { %>
+	<div class="navbar-options">
+		<% if (typeof username === "undefined") { %>
 		<a class="links" href="/profile/login">Login</a>
 		<% } else {%>
 		<a class="links" href="/api/user/logout">Logout</a>
 
 		<% } %>
 	</div>
+
+</div>

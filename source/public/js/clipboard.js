@@ -156,8 +156,8 @@ workspace.addEventListener('click', (e) => {
   if (e.target.classList.contains('delete')) {
     const targetClipboardTitle = targetTask.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML;
     const targetTaskText = targetTask.parentElement.childNodes[1].innerHTML;
-    // Remove task animation
-    console.log(targetTask.parentElement);
+    // ADD the Remove task animation
+    targetTask.parentElement.classList.add('remove-task');
     //Removes the target task form the Database and the clipboard UI
     setTimeout(() => {
       removeTaskFromClipboard({
