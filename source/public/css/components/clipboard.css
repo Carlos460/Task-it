@@ -12,7 +12,6 @@
     width: 30rem;
     margin: 1rem;
     text-align: center;
-    overflow: hidden;
     position: relative;
 }
 
@@ -25,16 +24,41 @@
     background-color: var(--primary-color);
     color: white;
     outline: none;
-    border: white solid 1px;
-    top: 0rem;
-    right: 0rem;
+    border: none;
+    top: 0.5rem;
+    right: 0.5rem;
+    border-radius: 2rem;
     height: 3rem;
     width: 3rem;
+    transition: all 0.3s ease;
+}
+
+.delete-clipboard-button::after {
+    position: absolute;
+    right: -0.5rem;
+    top: 0rem;
+    text-align: center;
+    padding-top: 0.8rem;
+    content: "delete";
+    background-color: white;
+    border-radius: 0.2rem;
+    color: black;
+    display: block;
+    opacity: 0;
+    width: 4rem;
+    height: 2rem;
+    pointer-events: none;
+}
+
+.delete-clipboard-button:hover::after {
+    animation: fadeIn 300ms ease-in;
+    animation-fill-mode: forwards;
 }
 
 .delete-clipboard-button:hover {
     background-color: var(--primary-light);
     cursor: pointer;
+    border-radius: 0rem;
 }
 
 .tasks-container {
@@ -129,4 +153,20 @@
     margin: 2rem 0rem;
     height: 3rem;
     width: 100%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        top: 0rem;
+    }
+
+    68% {
+        top: -3.5rem;
+    }
+
+    100% {
+        opacity: 1;
+        top: -3rem;
+    }
 }
